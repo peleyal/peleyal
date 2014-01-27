@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Google.Apis.Sample.MVC.Models.FileModel>
+
+@{
+    ViewBag.Title = "Drive";
+}
+
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Created Date
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var file in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => file.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => file.CreatedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Download", "DownloadAsync", new { 
+               title = file.Title, 
+               downloadUrl = file.DownloadUrl 
+           })
+            </td>
+        </tr>
+    }
+</table>
