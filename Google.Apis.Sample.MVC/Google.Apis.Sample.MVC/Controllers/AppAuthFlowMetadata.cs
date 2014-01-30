@@ -17,8 +17,8 @@ namespace Google.Apis.Sample.MVC.Controllers
                 {
                     ClientSecrets = new ClientSecrets
                     {
-                        ClientId = "762781009756-m0ed1ekb562tibge75157hnmct5hep8j.apps.googleusercontent.com",
-                        ClientSecret = "Osqjq87ROjK5y6tBw9rJFPIe"
+                        ClientId = "PUT_YOUR_CLIENT_ID_HERE",
+                        ClientSecret = "PUT_YOUR_CLIENT_SECRET_HERE"
                     },
                     Scopes = new[] { DriveService.Scope.Drive },
                     // TODO: maybe in a future post I'll demonstrate a new EFDataStore usage.
