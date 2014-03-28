@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>DevRel.Apis.Tictactoe.v1</id>
+        <version>1.8.1.0</version>
+        <title>DevRel.Apis.Tictactoe.v1 Client Library</title>
+        <authors>ethan_api_tictactoe_java_test_appspot_com</authors>
+        <owners></owners>
+        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+        <projectUrl>https://code.google.com/p/google-api-dotnet-client/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>ethan_api_tictactoe_java_test_appspot_com APIs Client Library for working with Tictactoe v1.
+          Supported Platforms:
+
+          - .NET Framework 4 and 4.5
+
+          - Windows Store apps
+
+          - Windows Phone 7.5 and 8
+
+          - Portable Class Libraries
+        </description>
+        <tags>ethan_api_tictactoe_java_test_appspot_com</tags>
+        <dependencies>
+            <group>
+                <dependency id="Google.Apis" version="1.8.1" />
+                <dependency id="Google.Apis.Auth" version="1.8.1" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\DevRel.Apis.Tictactoe.v1.dll" target="lib\portable-net4+sl4+wp71+win8\DevRel.Apis.Tictactoe.v1.dll" />
+        <file src="bin\Release\DevRel.Apis.Tictactoe.v1.pdb" target="lib\portable-net4+sl4+wp71+win8\DevRel.Apis.Tictactoe.v1.pdb" />
+        <file src="bin\Release\DevRel.Apis.Tictactoe.v1.xml" target="lib\portable-net4+sl4+wp71+win8\DevRel.Apis.Tictactoe.v1.xml" />
+    </files>
+</package>

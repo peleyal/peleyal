@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevRel.Apis.Tictactoe.v1</name>
+    </assembly>
+    <members>
+        <member name="P:DevRel.Apis.Tictactoe.v1.Data.Board.ETag">
+            <summary>The ETag of the item.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.Data.Score.Played">
+            <summary><seealso cref="T:System.DateTime"/> representation of <see cref="P:DevRel.Apis.Tictactoe.v1.Data.Score.PlayedRaw"/>.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.Data.Score.ETag">
+            <summary>The ETag of the item.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.Data.ScoreCollection.ETag">
+            <summary>The ETag of the item.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.Data.User.ETag">
+            <summary>The ETag of the item.</summary>
+        </member>
+        <member name="T:DevRel.Apis.Tictactoe.v1.TictactoeService">
+            <summary>The Tictactoe Service.</summary>
+        </member>
+        <member name="F:DevRel.Apis.Tictactoe.v1.TictactoeService.Version">
+            <summary>The API version.</summary>
+        </member>
+        <member name="F:DevRel.Apis.Tictactoe.v1.TictactoeService.DiscoveryVersionUsed">
+            <summary>The discovery version used to generate this service.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.TictactoeService.#ctor">
+            <summary>Constructs a new service.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.TictactoeService.#ctor(Google.Apis.Services.BaseClientService.Initializer)">
+            <summary>Constructs a new service.</summary>
+            <param name="initializer">The service initializer.</param>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeService.Features">
+            <summary>Gets the service supported features.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeService.Name">
+            <summary>Gets the service name.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeService.BaseUri">
+            <summary>Gets the service base URI.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeService.BasePath">
+            <summary>Gets the service base path.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeService.Board">
+            <summary>Gets the Board resource.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeService.Scores">
+            <summary>Gets the Scores resource.</summary>
+        </member>
+        <member name="T:DevRel.Apis.Tictactoe.v1.TictactoeService.Scope">
+            <summary>Available OAuth 2.0 scopes for use with the tictactoe.</summary>
+        </member>
+        <member name="F:DevRel.Apis.Tictactoe.v1.TictactoeService.Scope.UserinfoEmail">
+            <summary>View your email address</summary>
+        </member>
+        <member name="T:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1">
+            <summary>A base abstract class for Tictactoe requests.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.#ctor(Google.Apis.Services.IClientService)">
+            <summary>Constructs a new TictactoeBaseServiceRequest instance.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.InitParameters">
+            <summary>Initializes Tictactoe parameter list.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.Alt">
+            <summary>Data format for the response.</summary>
+            [default: json]
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.Fields">
+            <summary>Selector specifying which fields to include in a partial response.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.Key">
+            <summary>API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.OauthToken">
+            <summary>OAuth 2.0 token for the current user.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.PrettyPrint">
+            <summary>Returns response with indentations and line breaks.</summary>
+            [default: true]
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.QuotaUser">
+            <summary>Available to use for quota purposes for server-side applications. Can be any arbitrary string
+            assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.UserIp">
+            <summary>IP address of the site where the request originates. Use this if you want to enforce per-user
+            limits.</summary>
+        </member>
+        <member name="T:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.AltEnum">
+            <summary>Data format for the response.</summary>
+        </member>
+        <member name="F:DevRel.Apis.Tictactoe.v1.TictactoeBaseServiceRequest`1.AltEnum.Json">
+            <summary>Responses with Content-Type of application/json</summary>
+        </member>
+        <member name="T:DevRel.Apis.Tictactoe.v1.BoardResource">
+            <summary>The "board" collection of methods.</summary>
+        </member>
+        <member name="F:DevRel.Apis.Tictactoe.v1.BoardResource.service">
+            <summary> The service whih this resource is belong to.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.BoardResource.#ctor(Google.Apis.Services.IClientService)">
+            <summary>Constructs a new resource.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.BoardResource.Getmove(DevRel.Apis.Tictactoe.v1.Data.Board)">
+            <param name="body">The body of the request.</param>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.BoardResource.GetmoveRequest.#ctor(Google.Apis.Services.IClientService,DevRel.Apis.Tictactoe.v1.Data.Board)">
+            <summary>Constructs a new Getmove request.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.BoardResource.GetmoveRequest.GetBody">
+            <summary>Returns the body of the request.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.BoardResource.GetmoveRequest.InitParameters">
+            <summary>Initializes Getmove parameter list.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.BoardResource.GetmoveRequest.Body">
+            <summary>Gets or sets the body of this request.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.BoardResource.GetmoveRequest.MethodName">
+            <summary>Gets the method name.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.BoardResource.GetmoveRequest.HttpMethod">
+            <summary>Gets the HTTP method.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.BoardResource.GetmoveRequest.RestPath">
+            <summary>Gets the REST path.</summary>
+        </member>
+        <member name="T:DevRel.Apis.Tictactoe.v1.ScoresResource">
+            <summary>The "scores" collection of methods.</summary>
+        </member>
+        <member name="F:DevRel.Apis.Tictactoe.v1.ScoresResource.service">
+            <summary> The service whih this resource is belong to.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.ScoresResource.#ctor(Google.Apis.Services.IClientService)">
+            <summary>Constructs a new resource.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.ScoresResource.Insert(DevRel.Apis.Tictactoe.v1.Data.Score)">
+            <param name="body">The body of the request.</param>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.ScoresResource.InsertRequest.#ctor(Google.Apis.Services.IClientService,DevRel.Apis.Tictactoe.v1.Data.Score)">
+            <summary>Constructs a new Insert request.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.ScoresResource.InsertRequest.GetBody">
+            <summary>Returns the body of the request.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.ScoresResource.InsertRequest.InitParameters">
+            <summary>Initializes Insert parameter list.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.ScoresResource.InsertRequest.Body">
+            <summary>Gets or sets the body of this request.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.ScoresResource.InsertRequest.MethodName">
+            <summary>Gets the method name.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.ScoresResource.InsertRequest.HttpMethod">
+            <summary>Gets the HTTP method.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.ScoresResource.InsertRequest.RestPath">
+            <summary>Gets the REST path.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.ScoresResource.ListRequest.#ctor(Google.Apis.Services.IClientService)">
+            <summary>Constructs a new List request.</summary>
+        </member>
+        <member name="M:DevRel.Apis.Tictactoe.v1.ScoresResource.ListRequest.InitParameters">
+            <summary>Initializes List parameter list.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.ScoresResource.ListRequest.MethodName">
+            <summary>Gets the method name.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.ScoresResource.ListRequest.HttpMethod">
+            <summary>Gets the HTTP method.</summary>
+        </member>
+        <member name="P:DevRel.Apis.Tictactoe.v1.ScoresResource.ListRequest.RestPath">
+            <summary>Gets the REST path.</summary>
+        </member>
+    </members>
+</doc>
