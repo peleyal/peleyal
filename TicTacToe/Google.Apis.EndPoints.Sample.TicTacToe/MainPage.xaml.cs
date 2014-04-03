@@ -8,7 +8,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Google.Apis.EndPoints.Sample.TicTacToe.Resources;
-using Google.Apis.EndPoints.Sample.TicTacToe.ViewModels;
+using Google.Apis.EndPoints.Sample.TicTacToe.ViewModel;
+using Google.Apis.EndPoints.Sample.TicTacToe.Repository;
 
 namespace Google.Apis.EndPoints.Sample.TicTacToe
 {
@@ -18,7 +19,8 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe
         public MainPage()
         {
             InitializeComponent();
-            this.DataContext = new BoardViewModel();
+            // TODO(peleyal): inject!
+            this.DataContext = new BoardViewModel(new BoardRepository());
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();

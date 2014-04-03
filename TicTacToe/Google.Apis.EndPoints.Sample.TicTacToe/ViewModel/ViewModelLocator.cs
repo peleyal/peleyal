@@ -43,6 +43,7 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<BoardViewModel>();
         }
 
         public MainViewModel Main
@@ -52,7 +53,7 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

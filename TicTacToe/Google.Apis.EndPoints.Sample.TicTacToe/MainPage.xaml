@@ -85,11 +85,19 @@
                                 </delay:SetterValueBindingHelper>
                             </Setter.Value>
                         </Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"></Setter>
                     </Style>
                 </ListBox.ItemContainerStyle>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding Data}" Background="Red" Command="{Binding NextMoveCommand}" />
+                        <Button Name="btn" 
+                                BorderBrush="Transparent" 
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center" 
+                                Content="{Binding Data}" 
+                                FontSize="80"
+                                Command="{Binding NextMoveCommand}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
