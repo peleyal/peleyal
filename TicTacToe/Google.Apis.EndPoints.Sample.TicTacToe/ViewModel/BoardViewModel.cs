@@ -49,7 +49,7 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
 
         private bool CanExecuteNextMove()
         {
-            return Data == EmptyCell && board.CanExecuteNextMove();
+            return board.CanExecuteNextMove();
         }
 
         private char data;
@@ -66,13 +66,33 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
         public int Column { get { return column; } }
     }
 
-    public class BoardViewModel
+    public class BoardViewModel : ViewModelBase
     {
         public ObservableCollection<CellViewModel> Cells { get; private set; }
 
-        private bool isBusy;
+        public enum Status
+        {
+            NotLoggedIn,
+            NotDone,
+            Won,
+            Lost,
+            Tie,
+            Waiting,
+        }
+
+        private Status boardStatus;
+        public Status BoardStatus
+        {
+            get { return boardStatus; }
+            set
+            {
+                Set("BoardStatus", ref boardStatus, value);
+            }
+        }
 
         private readonly IBoardRepository repository;
+
+        public RelayCommand LoginCommand { get; private set; }
 
         public BoardViewModel(IBoardRepository repository)
         {
@@ -86,39 +106,114 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
                     Cells.Add(new CellViewModel(this, row, col));
                 }
             }
+
+            LoginCommand = new RelayCommand(async () =>
+            {
+                await repository.Login("user");
+                BoardStatus = Status.NotDone;
+                RaiseCanExecuteChanged();
+            });
+        }
+
+        private void RaiseCanExecuteChanged()
+        {
+            foreach (var cell in Cells)
+            {
+                cell.NextMoveCommand.RaiseCanExecuteChanged();
+            }
         }
 
         public bool CanExecuteNextMove()
         {
-            return !isBusy && Cells.Any(c => c.Data == CellViewModel.EmptyCell);
+            return BoardStatus == Status.NotDone;
         }
 
         public async Task ExecuteNextMove()
         {
-            if (Cells.All(c => c.Data != CellViewModel.EmptyCell))
+            BoardStatus = CheckForVictory();
+            if (boardStatus != Status.NotDone)
             {
+                // TODO(peleyal): Send score and clear the board.
+                RaiseCanExecuteChanged();
                 return;
             }
 
-            isBusy = true;
+            BoardStatus = Status.Waiting;
             string currentState = string.Join("", (from c in Cells
                                                    select c.Data).ToArray());
-            try
+
+            string newState = await repository.GetNextMoveAsync(currentState);
+
+            BoardStatus = CheckForVictory();
+            if (boardStatus != Status.NotDone)
             {
-                string newState = await repository.GetNextMoveAsync(currentState);
-                for (int i = 0; i < Cells.Count; ++i)
-                {
-                    Cells[i].Data = newState[i];
-                }
+                // TODO(peleyal): Send score and clear the board.
+                return;
             }
-            catch (Exception ex)
+
+            for (int i = 0; i < Cells.Count; ++i)
             {
-                // TODO(peleyal): Handle exception.
-            }
-            finally
-            {
-                isBusy = false;
+                Cells[i].Data = newState[i];
             }
         }
+
+        private Status CheckForVictory()
+        {
+            Tuple<Status, bool> status;
+
+            // Check rows and columns.
+            for (int i = 0; i < 3; i++)
+            {
+                status = CheckCellsEquals(Cells[i * 3].Data, Cells[i * 3 + 1].Data, Cells[i * 3 + 2].Data);
+                if (status.Item2)
+                {
+                    return status.Item1;
+                }
+                status = CheckCellsEquals(Cells[i].Data, Cells[i + 3].Data, Cells[i + 6].Data);
+                if (status.Item2)
+                {
+                    return status.Item1;
+                }
+            }
+
+            // Check top-left to bottom-right.
+            status = CheckCellsEquals(Cells[0].Data, Cells[4].Data, Cells[8].Data);
+            if (status.Item2)
+            {
+                return status.Item1;
+            }
+
+            // Check top-right to bottom-left.
+            status = CheckCellsEquals(Cells[2].Data, Cells[4].Data, Cells[6].Data);
+            if (status.Item2)
+            {
+                return status.Item1;
+            }
+
+            if (Cells.All(c => c.Data != CellViewModel.EmptyCell))
+            {
+                return Status.Tie;
+            }
+
+            return Status.NotDone;
+        }
+
+        private Tuple<Status, bool> CheckCellsEquals(char first, char second, char third)
+        {
+            if (first == second && second == third)
+            {
+                if (first == 'O')
+                {
+                    return Tuple.Create(Status.Lost, true);
+                }
+                if (first == 'X')
+                {
+                    return Tuple.Create(Status.Won, true);
+                }
+            }
+
+            return Tuple.Create(Status.NotDone, false);
+        }
+
     }
 }
