@@ -7,13 +7,16 @@
     xmlns:delay="clr-namespace:Delay"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tic="clr-namespace:Google.Apis.EndPoints.Sample.TicTacToe.Utils"
     mc:Ignorable="d"
+    DataContext="{Binding Board, Source={StaticResource Locator}}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
+        <tic:StatusValueConverter x:Key="StatusConverter" />
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -110,8 +113,8 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        
-        <TextBlock Margin="5" Text="{Binding BoardStatus}" Grid.Row="2" />
+
+        <TextBlock Margin="5" Text="{Binding BoardStatus,Converter={StaticResource StatusConverter}}" Grid.Row="2" />
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to

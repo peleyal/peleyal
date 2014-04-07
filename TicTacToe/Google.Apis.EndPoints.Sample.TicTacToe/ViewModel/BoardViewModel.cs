@@ -1,12 +1,14 @@
-﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using Google.Apis.EndPoints.Sample.TicTacToe.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+
+using Google.Apis.EndPoints.Sample.TicTacToe.Repository;
 
 namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
 {
@@ -24,7 +26,7 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
         readonly int column;
         readonly BoardViewModel board;
 
-        public const char EmptyCell = '-';
+        public const char EmptyCell = ' ';
 
         public CellViewModel(BoardViewModel board, int row, int column)
         {

@@ -9,7 +9,7 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.Repository
     public interface IBoardRepository
     {
         Task<string> GetNextMoveAsync(string currentState);
-        // TODO(peleyal): It shouldn't be part of the IBoardRepository
+        // TODO(peleyal): A better design would have this login method in authorization repository.
         Task Login(string user);
     }
 }

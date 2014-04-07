@@ -38,12 +38,14 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.Repository
                 throw new InvalidOperationException("User must login first!");
             }
 
+            currentState = currentState.Replace(' ', '-');
+
             Board board = await service.Board.Getmove(new Board
             {
                 State = currentState
             }).ExecuteAsync();
 
-            return board.State;
+            return board.State.Replace('-', ' ');
         }
     }
 }

@@ -16,6 +16,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
+using Google.Apis.EndPoints.Sample.TicTacToe.Repository;
+
 namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
 {
     /// <summary>
@@ -42,15 +44,15 @@ namespace Google.Apis.EndPoints.Sample.TicTacToe.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
-            SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<BoardViewModel>();
+            SimpleIoc.Default.Register<IBoardRepository, BoardRepository>();
         }
 
-        public MainViewModel Main
+        public BoardViewModel Board
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ServiceLocator.Current.GetInstance<BoardViewModel>();
             }
         }
 

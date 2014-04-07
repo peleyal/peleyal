@@ -98,6 +98,7 @@
     <Compile Include="Repository\BoardRepository.cs" />
     <Compile Include="Repository\IBoardRepository.cs" />
     <Compile Include="Utils\SetterValueBindingHelper.cs" />
+    <Compile Include="Utils\StatusValueConverter.cs" />
     <Compile Include="ViewModel\BoardViewModel.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -109,7 +110,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
